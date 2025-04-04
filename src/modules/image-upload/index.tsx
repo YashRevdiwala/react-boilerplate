@@ -1,9 +1,9 @@
 // src/components/ImageUploader.tsx
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Upload, Button, Spin, Progress } from 'antd';
 import { DeleteOutlined, UploadOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/redux/store';
-import { useEffect } from 'react';
+
 import { resetImageUpload, uploadImage } from '@/redux/slice/uploadImageSlice';
 
 const ImageUploader = () => {

@@ -1,15 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/redux/store';
-import { addDepartment, deleteDepartment, fetchDepartment, updateDepartment } from '@/redux/slice/departmentSlice';
-import { DepartmentTypes } from '../department';
 
-interface DepartmentFormProps {
-  onSubmit: (data: Omit<DepartmentTypes, 'department_id'>, id?: number) => void;
-  onCancel: () => void;
-  defaultValues?: DepartmentTypes;
-  isEditing: boolean;
-}
+import { addDepartment, deleteDepartment, fetchDepartment, updateDepartment } from '@/redux/slice/departmentSlice';
 
 // Department Form Component
 const DepartmentForm: React.FC<DepartmentFormProps> = ({ onSubmit, onCancel, defaultValues, isEditing }) => {

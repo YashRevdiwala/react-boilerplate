@@ -1,9 +1,9 @@
 // src/components/VideoUploader.tsx
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Upload, Button, Spin, Progress } from 'antd';
 import { DeleteOutlined, UploadOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/redux/store';
-import { useEffect } from 'react';
+
 import { resetVideoUpload, uploadVideo } from '@/redux/slice/uploadVideoSlice';
 
 const VideoUploader = () => {

@@ -2,21 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { AppDispatch, RootState } from '@/redux/store';
+
 import { fetchDepartment, addDepartment, updateDepartment, deleteDepartment } from '@/redux/slice/departmentSlice';
-import { DepartmentTypes } from '../department';
 
 const departmentSchema = Yup.object().shape({
   department_name: Yup.string().min(3, 'Department name must be at least 3 characters').required('Required'),
   is_active: Yup.number().min(0).max(1),
 });
-
-interface DepartmentFormProps {
-  onSubmit: (data: Omit<DepartmentTypes, 'department_id'>, id?: number) => void;
-  onCancel: () => void;
-  defaultValues?: DepartmentTypes;
-  isEditing: boolean;
-}
 
 // Department Form Component
 const DepartmentForm: React.FC<DepartmentFormProps> = ({ onSubmit, onCancel, defaultValues, isEditing }) => {

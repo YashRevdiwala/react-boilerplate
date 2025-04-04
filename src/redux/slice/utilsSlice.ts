@@ -1,15 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import toast from "react-hot-toast"
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 interface UtilsResponse {
-  loading: boolean
-  error: string | null
-  toast: string | null
+  loading: boolean;
+  error: string | null;
+  toast: string | null;
   notification: {
-    message: string
-    description: string
-    duration?: number
-  } | null
+    message: string;
+    description: string;
+    duration?: number;
+  } | null;
 }
 
 const initialState: UtilsResponse = {
@@ -17,47 +17,47 @@ const initialState: UtilsResponse = {
   error: null,
   toast: null,
   notification: null,
-}
+};
 
 export const utilsSlice = createSlice({
-  name: "utils",
+  name: 'utils',
   initialState,
   reducers: {
     setLoading: (state, action) => {
-      state.loading = action.payload
+      state.loading = action.payload;
     },
     setError: (state, action) => {
-      state.error = action.payload
+      state.error = action.payload;
     },
     clearError: (state) => {
-      state.error = null
+      state.error = null;
     },
     clearState: (state) => {
-      state.loading = false
-      state.error = null
+      state.loading = false;
+      state.error = null;
     },
     setToast: (_state, action) => {
-      toast.success(action.payload)
+      toast.success(action.payload);
     },
     clearToast: (state) => {
-      state.toast = null
+      state.toast = null;
     },
     showNotification: (
       state,
       action: PayloadAction<{
-        message: string
-        description: string
-        duration?: number
-      }>
+        message: string;
+        description: string;
+        duration?: number;
+      }>,
     ) => {
-      state.notification = action.payload
+      state.notification = action.payload;
     },
     clearNotification: (state) => {
-      state.notification = null
+      state.notification = null;
     },
   },
   extraReducers: () => {},
-})
+});
 
 export const {
   setLoading,
@@ -68,5 +68,5 @@ export const {
   clearToast,
   showNotification,
   clearNotification,
-} = utilsSlice.actions
-export default utilsSlice.reducer
+} = utilsSlice.actions;
+export default utilsSlice.reducer;

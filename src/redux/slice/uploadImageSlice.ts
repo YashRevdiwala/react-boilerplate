@@ -1,6 +1,7 @@
-import api from '@/services/axios.config';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import api from '@/services/axios.config';
 import { store } from '../store';
 
 interface UploadState {

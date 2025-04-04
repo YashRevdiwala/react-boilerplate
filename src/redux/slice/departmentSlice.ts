@@ -1,6 +1,6 @@
-import { DepartmentTypes } from '@/modules/department';
-import api from '@/services/axios.config';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import api from '@/services/axios.config';
 
 interface DepartmentResponse {
   loading: boolean;

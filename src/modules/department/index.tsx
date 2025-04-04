@@ -3,29 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AppDispatch, RootState } from '@/redux/store';
+
 import { fetchDepartment, addDepartment, updateDepartment, deleteDepartment } from '@/redux/slice/departmentSlice';
 import ImageUploader from '../image-upload';
 import VideoUploader from '../video-upload';
-
-// Define TypeScript types
-export interface DepartmentTypes {
-  department_id: number;
-  department_name: string;
-  is_active: number;
-}
 
 const departmentSchema = z.object({
   department_name: z.string().min(3, 'Department name must be at least 3 characters'),
   is_active: z.preprocess((val) => Number(val), z.number().min(0).max(1)),
 });
-
-interface DepartmentFormProps {
-  onSubmit: (data: Omit<DepartmentTypes, 'department_id'>, id?: number) => void;
-  onCancel: () => void;
-  defaultValues?: DepartmentTypes;
-  isEditing: boolean;
-}
 
 // Department Form Component
 const DepartmentForm: React.FC<DepartmentFormProps> = ({ onSubmit, onCancel, defaultValues, isEditing }) => {
